@@ -1,0 +1,48 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "email": "admin@admin.com",
+      "password": "123456",
+      "user_stats":"administrator"
+    },
+    {
+      "id": 2,
+      "username": "cust1",
+      "email": "customer@cust.com",
+      "password": "123456",
+      "user_stats":"user"
+    }
+  ],
+  "products": [
+    {
+      "name": "Skin Care 1",
+      "desc": "Made from nature",
+      "price": 27000,
+      "src": "https://i.imgur.com/UCZXnw1.jpg",
+      "id": 1
+    },
+    {
+      "name": "Skin Care 2",
+      "desc": "Made from nature",
+      "price": 37000,
+      "src": "https://i.imgur.com/CRoTONS.jpg",
+      "id": 2
+    },
+    {
+      "name": "Skin Care 3",
+      "desc": "Made from nature",
+      "price": 54000,
+      "src": "https://i.imgur.com/gFunc1R.jpg",
+      "id": 3
+    },
+    {
+      "name": "Skin Care 4",
+      "desc": "Made from nature",
+      "price": 15000,
+      "src": "https://i.imgur.com/qhBchWf.jpg",
+      "id": 4
+    }
+  ]
+}
