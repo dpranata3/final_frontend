@@ -16,21 +16,27 @@ export const onLoginClick = (user, pass) => {
         }).then(res => {
 
             if (res.data.length > 0) {
-                
-
                 //destructing
-                const {id, username} = res.data[0]
-                console.log(res.data[0])
-                
+                const {id, username,user_stats} = res.data[0]
+
+                //get Cart Status on the user
+                // axios.get('http://localhost:1991/carts',{
+                //     params:{
+                //         username: user
+                //     }
+                // }).then(res=>{
+                //     const cartLength = res.data.length 
+                // })  
                 // send data to reducers
                 dispatch({
                     type   :"LOGIN_SUCCESS",
-                    payload: {id,username}
+                    payload: {id,username,user_stats}
                 })
 
                 // Membuat sebuah file cookie dengan nama masihLogin, dan valuenya adalah username yg login
                 // path : "/" agar dapat diakses di setiap component
                 cookie.set('masihLogin', username, {path:'/'})
+                cookie.set('tipeUser', user_stats, {path:'/'})
 
             } else {
                 //jika username dan password tidak ditemukan
@@ -92,6 +98,7 @@ export const onRegisterUser = (user,email,pass) => {
 
 export const onLogoutUser = ()=>{
     cookie.remove('masihLogin')
+    cookie.remove('tipeUser')
     // karena action creator mereturn object, maka tidak perlu menggunakan dispatch
     return {
         type:'LOGOUT'
@@ -99,17 +106,17 @@ export const onLogoutUser = ()=>{
 }
 
 //Stay login
-export const keepLogin = (user) =>{
+export const keepLogin = (user, tipe) =>{
     return dispatch => {
         axios.get('http://localhost:1991/users', {
             params: {
                 username: user
             }
-        }).then(res => {
-                if(res.data.length > 0){
+        }).then(res => {   
+                if(res.data.length > 0){ 
                     dispatch({
                         type: 'LOGIN_SUCCESS',
-                        payload: {username: user}
+                        payload: {username: user, user_stats: tipe}
                     })
                 }
             })

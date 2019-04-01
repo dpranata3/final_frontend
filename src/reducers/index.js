@@ -5,7 +5,8 @@ const init ={
     username:'',
     error:'',
     success:'',
-    user_stats:''
+    countCart:'',
+    userStat:''
 }
 
 
@@ -13,8 +14,8 @@ const AuthReducer = (state= init, action)=>{
     
     switch (action.type) {
         case 'LOGIN_SUCCESS':
-            return { ...state, id: action.payload.id, username: action.payload.username, user_stats: action.payload.user_stats}
-        
+            return { ...state, id: action.payload.id, username: action.payload.username, userStat: action.payload.user_stats}
+
         case 'TIMEOUT':
             return{...state, error:'', success:''}
 
@@ -33,8 +34,10 @@ const AuthReducer = (state= init, action)=>{
     }
 }
 
+
 export default combineReducers(
     {
         auth: AuthReducer
+        
     }
 )

@@ -13,7 +13,7 @@ class Login extends Component {
 
   }
 
-  onErrorLogin = () => {
+  onErrorLogin = () => {  
     if (this.props.user.error !== "") {
       return (
         <div className="alert alert-danger mt-4">

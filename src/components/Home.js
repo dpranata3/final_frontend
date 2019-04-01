@@ -9,7 +9,6 @@ import ProductItem from './ProductItem'
 
 
  class Home extends Component {
-     //carousel
        
     //product list
     state = {
@@ -32,7 +31,6 @@ import ProductItem from './ProductItem'
                  <ProductItem 
                     key={iteem.id}
                     item={iteem}
-                    
                  />
              )
          })
@@ -66,7 +64,7 @@ import ProductItem from './ProductItem'
                         <div className="col-2">
                             <h1 className="display-4">Search</h1>
                         </div>
-                        <div className="row col-lg-10 col-sm-8">
+                        <div className="row col-lg-10">
                             {this.renderList()}
                         </div>
                     </div>

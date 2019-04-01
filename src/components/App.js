@@ -8,6 +8,8 @@ import Home from './Home'
 import Login from './Login'
 import Register from './Register'
 import ManageProduct from './ManageProduct'
+import ProductCart from './ProductCart'
+import DetailProduct from './DetailProduct'
 import {keepLogin} from '../actions'
 
 const cookie = new cookies()
@@ -16,11 +18,11 @@ class App extends Component {
     //life cycle hook/method
 
     componentDidMount() {
-
         var userCookie = cookie.get('masihLogin')
+        var userTipe = cookie.get('tipeUser')
 
         if (userCookie !== undefined) {
-            this.props.keepLogin(userCookie)
+            this.props.keepLogin(userCookie,userTipe)      
         }
     }
 
@@ -33,8 +35,8 @@ class App extends Component {
                     <Route path="/login" component={Login}/>
                     <Route path="/register" component={Register}/>
                     <Route path="/manageproduct" component={ManageProduct} />
-                    {/* <Route path="/detailproduct/:id_product" component={DetailProduct} /> */}
-                    
+                    <Route path="/productcart" component={ProductCart} />
+                    <Route path="/detailproduct/:id_product" component={DetailProduct} />
                 </div>
             </BrowserRouter>
         )
