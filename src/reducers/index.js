@@ -14,7 +14,7 @@ const AuthReducer = (state= init, action)=>{
     
     switch (action.type) {
         case 'LOGIN_SUCCESS':
-            return { ...state, id: action.payload.id, username: action.payload.username, userStat: action.payload.user_stats}
+            return { ...state, id: action.payload.id, username: action.payload.username, userStat: action.payload.userStat}
 
         case 'TIMEOUT':
             return{...state, error:'', success:''}

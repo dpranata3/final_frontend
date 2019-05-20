@@ -7,8 +7,8 @@ import { onLoginClick } from '../actions'
 class Login extends Component {
 
   onSubmitClick = () => {
-    const user = this.username.value
-    const pass = this.password.value
+    const user = this.cust_username.value
+    const pass = this.cust_password.value
     this.props.onLoginClick(user, pass)
 
   }
@@ -42,13 +42,13 @@ class Login extends Component {
                   <h4>Username</h4>
                 </div>
                 <form className="input-group">
-                  <input ref={input => { this.username = input }} className="form-control" type="text" />
+                  <input ref={input => { this.cust_username = input }} className="form-control" type="text" />
                 </form>
                 <div className="card-title mt-1">
                   <h4>Password</h4>
                 </div>
                 <form className="input-group">
-                  <input ref={input => { this.password = input }} className="form-control" type="password" />
+                  <input ref={input => { this.cust_password = input }} className="form-control" type="password" />
                 </form>
                 <button className="btn btn-success btn-block mt-5"
                   onClick={this.onSubmitClick}>Login</button>
