@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
-import axios from 'axios'
+import axios from '../config/axios'
 import {connect}  from 'react-redux'
 import Cookies from 'universal-cookie';
 
@@ -70,13 +70,16 @@ class ProductItem extends Component {
   render() {
    if(this.props.username!==""){
     const { item } = this.props;
+    
+
+    
     return (
       <div className="card col-lg-3 m-3 col-sm-12 ml-1 " style={{ width: "18rem" }} key={item.id}>
-        <img src={item.src} className="card-img-top" alt={item.name} />
+        <img src={`http://localhost:2019/prodImgs/${item.prod_image}`} className="card-img-top" alt={item.prod_name} />
         <div className="card-body">
-          <h5 className="card-title">{item.name}</h5>
-          <p className="card-text">{item.desc}</p>
-          <p className="card-text">Rp.{item.price}</p>
+          <h5 className="card-title">{item.prod_name}</h5>
+          <p className="card-text">{item.prod_desc}</p>
+          <p className="card-text">Rp.{item.prod_price}</p>
         </div>
         <div className="card-footer">
         {/* input qty */}
@@ -96,11 +99,11 @@ class ProductItem extends Component {
     const { item } = this.props;
     return (
       <div className="card col-3 m-3" style={{ width: "18rem" }} key={item.id}>
-        <img src={item.src} className="card-img-top" alt={item.name} />
+        <img src={`http://localhost:2019/prodImgs/${item.prod_image}`} className="card-img-top" alt={item.prod_name} />
         <div className="card-body">
-          <h5 className="card-title">{item.name}</h5>
-          <p className="card-text">{item.desc}</p>
-          <p className="card-text">Rp.{item.price}</p>
+          <h5 className="card-title">{item.prod_name}</h5>
+          <p className="card-text">{item.prod_desc}</p>
+          <p className="card-text">Rp.{item.prod_price}</p>
         </div>
         <div className="card-footer">
         {/* input qty */}

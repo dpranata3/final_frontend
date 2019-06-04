@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+import axios from '../config/axios'
 
 
 import ProductItem from './ProductItem'
@@ -9,8 +9,7 @@ import ProductItem from './ProductItem'
 
 
  class Home extends Component {
-       
-    //product list
+    
     state = {
         products: []
     }
@@ -20,17 +19,17 @@ import ProductItem from './ProductItem'
     }
 
     getProduct = () => {
-        axios.get('http://localhost:1991/products')
+        axios.get('/products/manage')
             .then(res => {
                 this.setState({products: res.data})
             })
     }
     renderList = () => {
-        return this.state.products.map(iteem => {
+        return this.state.products.map(prod => {
              return (
                  <ProductItem 
-                    key={iteem.id}
-                    item={iteem}
+                    key={prod.id}
+                    item={prod}
                  />
              )
          })

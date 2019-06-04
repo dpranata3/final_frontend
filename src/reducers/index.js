@@ -26,7 +26,19 @@ const AuthReducer = (state= init, action)=>{
             return {...state, error:action.payload, success:''}
 
         case 'AUTH_SUCCESS':
-        return {...state,error:'', success:action.payload}
+            return {...state,error:'', success:action.payload}
+
+        case 'ADD_PROD_SUCCESS':
+            return{...state,error:'', success:action.payload}
+
+        case 'ADD_PROD_ERROR':
+            return{...state,error:action.payload, success:''}
+
+        case 'EDIT_PROD_SUCCESS':
+            return{...state,error:'', success:action.payload}
+
+        case 'EDIT_PROD_ERROR':
+            return{...state,error:action.payload, success:''}
 
         default:
            return state
